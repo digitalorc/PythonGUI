@@ -1,5 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QMessageBox, QLineEdit,\
+                            QCheckBox, QRadioButton,QProgressBar,QGroupBox,QFileDialog,QTableWidget,QSpinBox, \
+                            QListWidget, QTabWidget, QTableWidgetItem
 
 
 class MyApp(QWidget):
@@ -8,35 +10,30 @@ class MyApp(QWidget):
         super().__init__()
         self.initUI()
 
+
     def initUI(self):
-
-        lbl_red = QLabel('Red')
-        lbl_green = QLabel('Green')
-        lbl_blue = QLabel('Blue')
-
-        lbl_red.setStyleSheet("color: red;"
-                             "border-style: solid;"
-                             "border-width: 2px;"
-                             "border-color: #FA8072;"
-                             "border-radius: 3px")
-        lbl_green.setStyleSheet("color: green;"
-                               "background-color: #7FFFD4")
-        lbl_blue.setStyleSheet("color: blue;"
-                              "background-color: #87CEFA;"
-                              "border-style: dashed;"
-                              "border-width: 3px;"
-                              "border-color: #1E90FF")
+        btn_ok = QPushButton('OK')
+        btn_cancel = QPushButton('Cancel')
+        btn_ok.clicked.connect(self.on_click)
+        hbox = QHBoxLayout()
+        hbox.addStretch(1)
+        hbox.addWidget(btn_ok)
+        hbox.addWidget(btn_cancel)
+        hbox.addStretch(1)
 
         vbox = QVBoxLayout()
-        vbox.addWidget(lbl_red)
-        vbox.addWidget(lbl_green)
-        vbox.addWidget(lbl_blue)
+        vbox.addStretch(2)
+        vbox.addLayout(hbox)
+        vbox.addStretch(1)
 
         self.setLayout(vbox)
 
-        self.setWindowTitle('Stylesheet')
+        self.setWindowTitle('Box Layout')
         self.setGeometry(300, 300, 300, 200)
         self.show()
+
+    def on_click(self):
+        QMessageBox.question(self, 'Message', "Do you like Python?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
 
 if __name__ == '__main__':

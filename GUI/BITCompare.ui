@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CompareBitError</class>
- <widget class="QDialog" name="CompareBitError">
+ <class>QMainDlg</class>
+ <widget class="QDialog" name="QMainDlg">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>643</width>
+    <width>637</width>
     <height>963</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>GangImage Compare</string>
   </property>
-  <widget class="QTreeView" name="treeView">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>250</y>
-     <width>641</width>
-     <height>701</height>
-    </rect>
-   </property>
-  </widget>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>130</y>
+     <x>160</x>
+     <y>120</y>
      <width>120</width>
      <height>61</height>
     </rect>
@@ -35,7 +28,7 @@
    <property name="title">
     <string>Page Size</string>
    </property>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="radio_pg_2048b">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -47,8 +40,11 @@
     <property name="text">
      <string>2048 Byte</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="radio_pg_512b">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -65,8 +61,8 @@
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>130</y>
+     <x>300</x>
+     <y>120</y>
      <width>120</width>
      <height>61</height>
     </rect>
@@ -100,12 +96,54 @@
      <string>64 Byte</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>120</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Spare Area Size</string>
+    </property>
+    <widget class="QRadioButton" name="radio_sp_128b">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>90</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>128 Byte</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radio_sp_64b">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>90</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>64 Byte</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>120</y>
      <width>120</width>
      <height>61</height>
     </rect>
@@ -113,7 +151,7 @@
    <property name="title">
     <string>Erase Block Size</string>
    </property>
-   <widget class="QRadioButton" name="radioButton_7">
+   <widget class="QRadioButton" name="radio_bl_128k">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -125,8 +163,11 @@
     <property name="text">
      <string>128 Kb</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_8">
+   <widget class="QRadioButton" name="radio_bl_64k">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -140,68 +181,64 @@
     </property>
    </widget>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QProgressBar" name="progressbar">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>230</y>
-     <width>641</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QProgressBar" name="progressBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>200</y>
-     <width>641</width>
-     <height>23</height>
+     <x>1</x>
+     <y>903</y>
+     <width>635</width>
+     <height>26</height>
     </rect>
    </property>
    <property name="value">
     <number>24</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="le_dump_file_path">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>40</y>
-     <width>491</width>
-     <height>25</height>
+     <width>520</width>
+     <height>28</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="le_master_file_path">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>10</y>
-     <width>491</width>
-     <height>25</height>
+     <width>520</width>
+     <height>28</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>70</y>
-     <width>121</width>
-     <height>31</height>
-    </rect>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
    </property>
-   <property name="text">
-    <string>Save AsFile</string>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btn_start">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>80</x>
      <y>70</y>
-     <width>491</width>
+     <width>361</width>
      <height>31</height>
     </rect>
    </property>
@@ -209,31 +246,126 @@
     <string>Start</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btn_open_dump">
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>40</y>
+     <y>39</y>
      <width>121</width>
-     <height>31</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Open Target</string>
+    <string>Open dump file</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_open_master">
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>10</y>
+     <y>9</y>
      <width>121</width>
-     <height>31</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Open Orgin</string>
+    <string>Open master file</string>
    </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>120</y>
+     <width>120</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Max Bit Error</string>
+   </property>
+   <widget class="QSpinBox" name="spinbox_max_error">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>8</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_result_2">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>30</y>
+      <width>641</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>byte</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_result">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>932</y>
+     <width>635</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="table_result">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>191</y>
+     <width>635</width>
+     <height>711</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QHeaderView::section{
+								Background-color:rgb(128,128,128);
+								border :1px solid white;
+                                }</string>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="columnCount">
+    <number>3</number>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>200</number>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <column/>
+   <column/>
+   <column/>
   </widget>
  </widget>
  <resources/>
